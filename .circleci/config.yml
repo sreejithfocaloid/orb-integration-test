@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.1
-  orb-tools: circleci/orb-tools@11.1
 
 filters: &filters
   tags:
