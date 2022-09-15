@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.1
+  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.2
 
 filters: &filters
   tags:
@@ -16,7 +16,7 @@ jobs:
       - setup_remote_docker:
           version: 20.10.14
       # Run your orb's commands to validate them.
-      - foc-orb-test/greet:
+      - foc-orb-test/xray:
           imageName: nginx
       - store_artifacts:
           path: /tmp/artifact-1
