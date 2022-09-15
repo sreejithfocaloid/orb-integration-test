@@ -10,6 +10,8 @@ filters: &filters
 
 jobs:
   build:
+    docker:
+      - image: cimg/base:current
     steps:
       - checkout
       - setup_remote_docker:
