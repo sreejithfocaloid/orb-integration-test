@@ -3,10 +3,6 @@ version: 2.1
 orbs:
   foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.2
 
-filters: &filters
-  tags:
-    only: /.*/
-
 jobs:
   build:
     docker:
