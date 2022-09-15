@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.2
+  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.3
 
 jobs:
   build:
@@ -15,8 +15,8 @@ jobs:
       - foc-orb-test/xray:
           imageName: nginx
       - store_artifacts:
-          path: /tmp/artifact-1
-          destination: artifact-file
+          path: /tmp/artifact
+          destination: xray-json
 
 workflows:
   xray-scan:
