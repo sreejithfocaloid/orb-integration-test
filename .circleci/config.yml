@@ -3,9 +3,6 @@ version: 2.1
 orbs:
   foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.1
 
-filters: &filters
-  tags:
-    only: /.*/
 
 jobs:
   build:
@@ -16,7 +13,7 @@ jobs:
       - setup_remote_docker:
           version: 20.10.14
       # Run your orb's commands to validate them.
-      - foc-orb-test/greet:
+      - foc-orb-test/xray:
           imageName: nginx
       - store_artifacts:
           path: /tmp/artifact-1
@@ -26,5 +23,4 @@ workflows:
   test-deploy:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
-      - build:
-          filters: *filters
+      - build
