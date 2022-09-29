@@ -9,9 +9,9 @@ jobs:
       - image: cimg/base:current
     parameters:
       image-name:
-        description: The path to the root of the Android project you want to build, relative to the root of the repository.
+        description: Image to be scanned.
         type: string
-        default: "nginx"
+        default: nginx
     steps:
       - checkout
       # Run your orb's commands to validate them.
