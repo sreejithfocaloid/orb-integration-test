@@ -4,7 +4,7 @@ orbs:
   foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.5
 
 jobs:
-  build:
+  scan:
     docker:
       - image: cimg/base:current
     steps:
@@ -21,7 +21,7 @@ jobs:
           path: /tmp/artifact-vscan
           destination: vscan-json
 workflows:
-  xray-scan:
+  engine-execution:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
-      - build
+      - scan
