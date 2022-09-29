@@ -2,16 +2,16 @@ version: 2.1
 
 orbs:
   foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.5
-    parameters:
-      image-name:
-        default: "ngnix"
-        type: string
+    
 jobs:
   scan:
     docker:
       - image: cimg/base:current
     steps:
-      image-name: nginx
+      parameters:
+        image-name:
+          default: "ngnix"
+          type: string
       - checkout
       # Run your orb's commands to validate them.
       - foc-orb-test/xray:
