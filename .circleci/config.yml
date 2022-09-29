@@ -15,7 +15,7 @@ jobs:
       - foc-orb-test/xray:
           imageName: nginx
       - store_artifacts:
-          path: /tmp/artifact
+          path: /tmp/artifact-xray
           destination: xray-json
 
 workflows:
