@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.5
+  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.7
 
 jobs:
   scan:
