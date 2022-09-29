@@ -1,10 +1,12 @@
 version: 2.1
 
 orbs:
-  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.6
+  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.5
 
 jobs:
   scan:
+    docker:
+      - image: cimg/base:current
     parameters:
       image-name:
         description: Image to be scanned.
