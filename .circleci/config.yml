@@ -17,7 +17,11 @@ jobs:
       - store_artifacts:
           path: /tmp/artifact-xray
           destination: xray-json
-
+      - foc-orb-test/vscan:
+          imageName: nginx
+      - store_artifacts:
+          path: /tmp/artifact-vscan
+          destination: vscan-json
 workflows:
   xray-scan:
     jobs:
