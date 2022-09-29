@@ -7,6 +7,11 @@ jobs:
   scan:
     docker:
       - image: cimg/base:current
+    parameters:
+      image-name:
+        description: The path to the root of the Android project you want to build, relative to the root of the repository.
+        type: string
+        default: "nginx"
     steps:
       - checkout
       # Run your orb's commands to validate them.
@@ -16,7 +21,7 @@ jobs:
           path: /tmp/artifact-xray
           destination: xray-json
       - foc-orb-test/vscan:
-          << foc-orb-test/xray.imageName >>
+          imageName: nginx
       - store_artifacts:
           path: /tmp/artifact-vscan
           destination: vscan-json
