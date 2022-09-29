@@ -16,7 +16,7 @@ jobs:
           path: /tmp/artifact-xray
           destination: xray-json
       - foc-orb-test/vscan:
-          imageName: <<foc-orb-test/xray>>
+          imageName: << foc-orb-test/xray.imageName >>
       - store_artifacts:
           path: /tmp/artifact-vscan
           destination: vscan-json
