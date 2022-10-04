@@ -7,7 +7,6 @@ jobs:
   scan:
     docker:
       - image: cimg/base:current
-    parallelism: 4
     parameters:
       image-name:
         description: Image to be scanned.
