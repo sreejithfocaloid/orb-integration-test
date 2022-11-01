@@ -1,27 +1,33 @@
 version: 2.1
 
 orbs:
-  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.7
+  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.10
 
 jobs:
   scan:
     docker:
-      - image: cimg/base:current
+      - image: cimg/base:<< parameters.cimg-tag >>
     parameters:
       image-name:
         description: Image to be scanned.
         type: string
         default: nginx
+      cimg-tag:
+        description: Which tag to be used for cimg/base.
+        type: string
+        default: current #Which tag to be used for cimg eg:  cimg/base:current
     steps:
       - checkout
       # Run your orb's commands to validate them.
       - foc-orb-test/xray:
           imageName: << parameters.image-name >>
+          cimgTag: << parameters.cimg-tag >>
       - store_artifacts:
           path: /tmp/artifact-xray
           destination: xray-json
       - foc-orb-test/vscan:
           imageName: << parameters.image-name >>
+          cimgTag: << parameters.cimg-tag >>
       - store_artifacts:
           path: /tmp/artifact-vscan
           destination: vscan-json
