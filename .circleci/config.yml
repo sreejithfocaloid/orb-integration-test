@@ -5,8 +5,6 @@ orbs:
 
 jobs:
   scan:
-    docker:
-      - image: cimg/base:<< parameters.cimg-tag >>
     parameters:
       image-name:
         description: Image to be scanned.
