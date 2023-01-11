@@ -11,6 +11,7 @@ jobs:
       image-name:
         description: Image to be scanned.
         type: string
+        default: << pipeline.image-name >>
       cimg-tag:
         description: Which tag to be used for cimg/base.
         type: string
@@ -19,13 +20,13 @@ jobs:
       - checkout
       # Run your orb's commands to validate them.
       - foc-orb-test/xray:
-          imageName: << pipeline.parameters.image-name >>
+          imageName: << parameters.image-name >>
           cimgTag: << parameters.cimg-tag >>
       - store_artifacts:
           path: /tmp/artifact-xray
           destination: xray-json
       - foc-orb-test/vscan:
-          imageName: << pipeline.parameters.image-name >>
+          imageName: << parameters.image-name >>
           cimgTag: << parameters.cimg-tag >>
       - store_artifacts:
           path: /tmp/artifact-vscan
