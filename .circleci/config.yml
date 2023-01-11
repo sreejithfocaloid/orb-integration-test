@@ -27,8 +27,8 @@ jobs:
           path: /tmp/artifact-xray
           destination: xray-json
       - foc-orb-test/vscan:
-          imageName: << parameters.image-name >>
-          cimgTag: << parameters.cimg-tag >>
+          imageName: << pipeline.parameters.image-name >>
+          cimgTag: << pipeline.parameters.cimg-tag >>
       - store_artifacts:
           path: /tmp/artifact-vscan
           destination: vscan-json
