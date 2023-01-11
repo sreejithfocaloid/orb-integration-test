@@ -4,6 +4,7 @@ parameters:
   image-name:
     description: Image to be scanned.
     type: string
+    default: node
   cimg-tag:
     description: Which tag to be used for cimg/base.
     type: string
