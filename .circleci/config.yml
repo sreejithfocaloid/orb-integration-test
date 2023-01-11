@@ -27,7 +27,7 @@ parameters:
 executors:
   docker-publisher: 
   environment:
-  # IMAGE_NAME: ndukwearm19docker/docker-node-app
+    IMAGE_NAME: sreejithfocaloid/node-example
   docker: # Each job requires specifying an executor
   # (either docker, macos, or machine), see
     - image: circleci/node:latest
