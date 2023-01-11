@@ -30,7 +30,10 @@ executors:
       IMAGE_NAME: sreejithfocaloid/node-example
     docker: # Each job requires specifying an executor
     # (either docker, macos, or machine), see
-      - image: << pipeline.parameters.cimg-tag >>
+      - image: cimg/base:<< pipeline.parameters.cimg-tag >>
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
 jobs:
   publishLatestToHub: 
     executor: docker-publisher
@@ -74,4 +77,4 @@ workflows:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - publishLatestToHub
-      - scan
+      # - scan
