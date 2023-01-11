@@ -30,7 +30,7 @@ executors:
       IMAGE_NAME: sreejithfocaloid/node-example
     docker: # Each job requires specifying an executor
     # (either docker, macos, or machine), see
-      - image: circleci/node:latest
+      - image: cimg/node:latest
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
