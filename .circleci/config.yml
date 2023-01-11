@@ -1,5 +1,7 @@
 version: 2.1
 
+orbs:
+  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.13
 parameters:
   image-name:
     description: Image to be scanned.
@@ -9,9 +11,6 @@ parameters:
     description: Which tag to be used for cimg/base.
     type: string
     default: current #Which tag to be used for cimg eg:  cimg/base:current
-orbs:
-  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.13
-
 jobs:
   scan:
     docker:
