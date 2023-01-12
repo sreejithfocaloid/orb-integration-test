@@ -27,7 +27,7 @@ parameters:
 executors:
   docker-publisher: 
     environment:
-      IMAGE_NAME: sreejithfocaloid/node-example
+      IMAGE_NAME: << pipeline.parameters.image-namespace >>/<< pipeline.parameters.image-name >>
     docker: # Each job requires specifying an executor
     # (either docker, macos, or machine), see
       - image: cimg/base:<< pipeline.parameters.cimg-tag >>
@@ -45,8 +45,8 @@ jobs:
           name: Publish Docker Image to Docker Hub
           command: |
             echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-            docker build -t sreejithfocaloid/node-example:latest .
-            docker push sreejithfocaloid/node-example:latest
+            docker build -t << pipeline.parameters.image-namespace >>/<< pipeline.parameters.image-name >>:<< pipeline.parameters.image-tag >> .
+            docker push << pipeline.parameters.image-namespace >>/<< pipeline.parameters.image-name >>:<< pipeline.parameters.image-tag >>
   scan:
     docker:
       - image: cimg/base:<< pipeline.parameters.cimg-tag >>
