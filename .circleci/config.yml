@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   docker: circleci/docker@1.5.0
-  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.16
+  foc-orb-test: sreejithfocaloid/foc-orb-test@0.0.17
 parameters:
   image-name:
     description: Image to be scanned.
